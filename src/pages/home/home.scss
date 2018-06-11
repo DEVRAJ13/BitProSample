@@ -1,3 +1,79 @@
 page-home {
+ .main-background{
+    background-color: map-get($colors, main-color);
+ }
+  
+    .row-style{
+        border-top: 1px solid map-get($colors, gray);
+    }
+    .custom-card{
+      border-radius: 15px;
+        color: #fff;
+        background: #383f48;
+    }
+
+
+
+
+   
+
+        .card {
+          position: relative;
+          text-align: center;
+        }
+      
+        .card-title {
+          position: absolute;
+          top: 36%;
+          width: 100%;
+          color: #fff;
+          font-size: 16px;
+        }
+  
+
+
+      .custom-item{
+        background-color: transparent;
+    }
+
+      ion-scroll {
+        position: inherit;
+        display: block;
+    }
+
+      .scroll-content{
+        top: -56px !important;
+        padding-top: 60px !important;
+        }
+
+        .scroll_class_list_one{
+          height: 40px;
+      }
+
+      .scroll_class_list_two{
+        height: 110px;
+    }
+    .item-md.item-block .item-inner {
+      border-bottom: none !important;
+  }
+
+ 
+
+
+  
+
+
+
+
+
+
+
+ 
+    
+
+
+
+   
+     
 
 }

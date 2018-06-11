@@ -1,0 +1,22 @@
+page-search {
+    .searchbar-md .searchbar-search-icon {
+         left: 0px; 
+         top: 0px; 
+        background-image: none !important;
+         width: 0px; 
+         height: 0px;
+    }
+
+    .searchbar-md .searchbar-input {
+        padding: 6px 16px; 
+    }
+
+    .row-style{
+        border-top: 1px solid map-get($colors, gray);
+    }
+    .custom-card{
+        border-bottom-right-radius: 25px;
+        border-bottom-left-radius: 25px;
+    }
+
+}

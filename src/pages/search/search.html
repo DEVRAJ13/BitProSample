@@ -1,0 +1,58 @@
+<!--
+  Generated template for the SearchPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar >
+    <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+  <ion-buttons end>
+    <button ion-button icon-only color="royal"  (click)="startListening()">
+      <ion-icon name="mic"></ion-icon>
+    </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-12 col-md-6 col-lg-4 col-xl-3 *ngFor="let item of items">
+        <ion-card class="custom-card">
+          <ion-row>
+            <ion-col>
+              <ion-list>
+                <ion-item>
+                  <ion-avatar item-start>
+                    <img [src]="item.urlToImage">
+                  </ion-avatar>
+                  <h2>{{ item.source.name }}</h2>
+                  <p>{{item.publishedAt}}</p>
+                </ion-item>
+              </ion-list>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            
+            <ion-card-content style="font-weight: bold;padding: 0px 16px 0px 16px !important">{{ item.title }}</ion-card-content>
+            <img style="height: 125px;padding: 16px;border-radius: 25px;" [src]="top_headline.urlToImage"/>
+            <ion-card-content>{{ item.description }}</ion-card-content>
+          </ion-row>
+          <ion-row padding class="row-style">
+            <ion-col col-6 text-left>
+              <ion-icon name="share"></ion-icon>&nbsp;SHARE
+            </ion-col>
+            <ion-col col-6 text-right>
+              <ion-icon name="eye">&nbsp;</ion-icon>VIEW
+            </ion-col>
+          </ion-row>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+ 
+</ion-content>

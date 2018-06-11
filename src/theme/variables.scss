@@ -38,7 +38,10 @@ $colors: (
   secondary:  #32db64,
   danger:     #f53d3d,
   light:      #f4f4f4,
-  dark:       #222
+  dark:       #242a31,
+  gray:       #B8B8B8,
+  main-color:      #242a31,
+  bar:         #FFFF00
 );
 
 
@@ -53,8 +56,10 @@ $colors: (
 // --------------------------------------------------
 // Material Design only Sass variables can go here
 
+$searchbar-md-input-box-shadow:	none;
+$searchbar-md-input-border-radius:	25px;
 
-
+$toolbar-background: map-get($colors, dark);
 
 // App Windows Variables
 // --------------------------------------------------

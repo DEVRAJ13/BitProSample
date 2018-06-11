@@ -3,16 +3,77 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Home</ion-title>
+    <ion-title></ion-title>
+    <ion-buttons start>
+      <button ion-button icon-only color="royal" (click)="searchEvery()">
+        <ion-icon name="search"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <h3>Ionic Menu Starter</h3>
+<ion-content class="main-background">
 
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
-  </p>
+  <ion-item class="custom-item">
+    <ion-scroll scrollX="true" class="scroll_class_list_one">
+      <ion-icon text-wrap *ngFor="let top_headline of top_headlines">
+      <button ion-button  outline round>BBC News</button>
+      </ion-icon>
+    </ion-scroll>
+  </ion-item>
+     
+ 
 
-  <button ion-button secondary menuToggle>Toggle Menu</button>
+
+
+  <ion-item class="custom-item">
+    <ion-scroll scrollX="true" class="scroll_class_list_two">
+      <ion-icon text-wrap *ngFor="let top_headline of top_headlines">
+        <div class="card-background-page">
+          <ion-card style="    width: 175px;">
+            <img src="http://static.dnaindia.com/sites/default/files/styles/full/public/2018/06/02/689100-02f18ac019.jpg" />
+            <div class="card-title">Technology</div>
+          </ion-card>
+        </div>
+      </ion-icon>
+    </ion-scroll>
+  </ion-item>
+
+
+    <ion-row>
+      <ion-col col-12 col-md-6 col-lg-4 col-xl-3 *ngFor="let top_headline of top_headlines">
+        <ion-card class="custom-card">
+          <ion-row>
+            <div  class="card">
+              <div *ngIf="top_headline.urlToImage !== null;else other">
+              <img  style="height: 125px;padding: 16px;border-radius: 25px;    opacity: 0.3;" [src]="top_headline.urlToImage"/>
+            </div>
+              <ng-template #other>
+                <img  style="height: 125px;padding: 16px;border-radius: 25px;    opacity: 0.3;" src="./assets/imgs/placeholder.jpg"/>
+              </ng-template>
+              <div class="card-title"> <ion-card-content style="padding: 0px 16px 0px 16px !important">{{ top_headline.title }}</ion-card-content></div>
+            </div>
+            <p style="color: aliceblue;
+            font-size: 12px;
+            padding-left: 16px;
+            padding-right: 16px;
+            padding-bottom: 16px;">{{ top_headline.description }}</p>
+          </ion-row>
+          <ion-row padding class="row-style" style="">
+            <ion-col col-6 text-left>
+              <ion-icon name="share"></ion-icon>&nbsp;SHARE
+            </ion-col>
+            <ion-col col-6 text-right (click)="jumpToFeed(top_headline.url)">
+              <ion-icon name="eye">&nbsp;</ion-icon>VIEW
+            </ion-col>
+          </ion-row>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+
+
+  <ion-infinite-scroll (ionInfinite)="loadMore($event)" loadingSpinner="bubbles" loadingText="Loading Users...">
+    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+  </ion-infinite-scroll> 
+
 </ion-content>
